@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інтернет Магазин</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .product {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+            width: 250px;
+        }
+        .product img {
+            width: 250px;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        .product a {
+            display: block;
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .product .name {
+            display: block;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        .price {
+            font-size: 16px;
+            color: green;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ласкаво просимо до нашого магазину!</h1>
+    
+    {% for product in products %}
+        <div class="product">
+            <div class="name">{{ product.name }}</div>
+            <div class="price">{{ product.price }} грн</div>
+
+            <form action="/buy-item" method="POST">
+                <button type="submit">Перейти до оплати</button>
+            </form>
+        </div>
+    {% endfor %}
+</body>
+</html>
